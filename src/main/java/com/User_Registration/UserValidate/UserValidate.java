@@ -9,6 +9,7 @@ public class UserValidate {
     public static final String NAME_PATTERN = "^[A-Z][a-z]{2,}";
     public static final String EMAIL_PATTERN = "^[a-zA-Z0-9]+([._+-][0-9a-zA-Z]+)*@[a-zA-Z0-9]+.[a-zA-Z]{2,4}([.][a-zA-Z]{2})?$";
     public static final String MOBILE_NUMBER_PATTERN = "^[0-9]{1,3}[ ][0-9]{10}$";
+    public static final String PASSWORD_PATTERN = "(?=.*[a-z])(?=.*[A-Z]).{8,}";
 
     public boolean checkFirstName(String firstName) {
         Pattern pattern = Pattern.compile(NAME_PATTERN);
@@ -30,11 +31,13 @@ public class UserValidate {
         return pattern.matcher(mobileNumber).matches();
     }
 
+    public boolean checkPasswordLength(String password) {
+        Pattern pattern = Pattern.compile(PASSWORD_PATTERN);
+        return pattern.matcher(password).matches();
+    }
 
-    public boolean checkPassword(String password) {
-        if( password.length() > 7 )
-            return true;
-        else
-            return false;
+    public boolean checkPasswordWithAtleastOneUppercase(String password) {
+        Pattern pattern = Pattern.compile(PASSWORD_PATTERN);
+        return pattern.matcher(password).matches();
     }
 }

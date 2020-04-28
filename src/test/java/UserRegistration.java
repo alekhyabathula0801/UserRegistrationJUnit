@@ -34,7 +34,14 @@ public class UserRegistration {
     @Test
     public void givenPassword_ifLong_thenReturnTrue() {
         UserValidate validator = new UserValidate();
-        boolean result = validator.checkPassword("jnsAXt$#NJ4");
+        boolean result = validator.checkPasswordLength("jnJfgik4");
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void givenPassword_ifAtleastOneUppercase_thenReturnTrue() {
+        UserValidate validator = new UserValidate();
+        boolean result = validator.checkPasswordWithAtleastOneUppercase("saaRjmHnrf");
         Assert.assertTrue(result);
     }
 }
