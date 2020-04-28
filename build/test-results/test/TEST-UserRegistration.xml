@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="UserRegistration" tests="7" skipped="0" failures="0" errors="0" timestamp="2020-04-28T18:38:39" hostname="LAPTOP-VMLRSS4V" time="0.014">
+<testsuite name="UserRegistration" tests="8" skipped="0" failures="0" errors="0" timestamp="2020-04-28T19:40:40" hostname="LAPTOP-VMLRSS4V" time="0.011">
   <properties/>
   <testcase name="givenPassword_ifAtleastOneNumericValue_thenReturnTrue" classname="UserRegistration" time="0.004"/>
-  <testcase name="givenMobileNumber_ifProper_thenReturnTrue" classname="UserRegistration" time="0.0"/>
+  <testcase name="givenMobileNumber_ifProper_thenReturnTrue" classname="UserRegistration" time="0.001"/>
   <testcase name="givenFirstName_ifProper_thenReturnTrue" classname="UserRegistration" time="0.0"/>
-  <testcase name="givenPassword_ifLong_thenReturnTrue" classname="UserRegistration" time="0.001"/>
+  <testcase name="givenPassword_ifLong_thenReturnTrue" classname="UserRegistration" time="0.0"/>
+  <testcase name="givenPassword_ifExactlyOneSpecialCharacter_thenReturnTrue" classname="UserRegistration" time="0.001"/>
   <testcase name="givenLastName_ifProper_thenReturnTrue" classname="UserRegistration" time="0.0"/>
-  <testcase name="givenPassword_ifAtleastOneUppercase_thenReturnTrue" classname="UserRegistration" time="0.0"/>
+  <testcase name="givenPassword_ifAtleastOneUppercase_thenReturnTrue" classname="UserRegistration" time="0.001"/>
   <testcase name="givenEmailId_ifProper_thenReturnTrue" classname="UserRegistration" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

@@ -34,7 +34,7 @@ public class UserRegistration {
     @Test
     public void givenPassword_ifLong_thenReturnTrue() {
         UserValidate validator = new UserValidate();
-        boolean result = validator.checkPasswordLength("jnJfgik4");
+        boolean result = validator.checkPasswordLength("jnJhu$fgik4");
         Assert.assertTrue(result);
     }
 
@@ -49,6 +49,13 @@ public class UserRegistration {
     public void givenPassword_ifAtleastOneNumericValue_thenReturnTrue() {
         UserValidate validator = new UserValidate();
         boolean result = validator.checkPasswordWithAtleastOneNumber("khws3sVUJG7Fc");
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void givenPassword_ifExactlyOneSpecialCharacter_thenReturnTrue() {
+        UserValidate validator = new UserValidate();
+        boolean result = validator.checkPasswordWithExactlyOneSpecialCharacter("k1hw@s3sVJG7c");
         Assert.assertTrue(result);
     }
 }
