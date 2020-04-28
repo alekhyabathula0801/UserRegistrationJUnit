@@ -29,4 +29,12 @@ public class UserValidate {
         Pattern pattern = Pattern.compile(MOBILE_NUMBER_PATTERN);
         return pattern.matcher(mobileNumber).matches();
     }
+
+
+    public boolean checkPassword(String password) {
+        if( password.length() > 7 )
+            return true;
+        else
+            return false;
+    }
 }

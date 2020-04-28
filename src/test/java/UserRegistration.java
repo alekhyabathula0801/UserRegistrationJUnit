@@ -30,4 +30,11 @@ public class UserRegistration {
         boolean result = validator.checkMobileNumber("91 1234567890");
         Assert.assertTrue(result);
     }
+
+    @Test
+    public void givenPassword_ifLong_thenReturnTrue() {
+        UserValidate validator = new UserValidate();
+        boolean result = validator.checkPassword("jnsAXt$#NJ4");
+        Assert.assertTrue(result);
+    }
 }
