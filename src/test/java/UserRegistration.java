@@ -6,14 +6,14 @@ public class UserRegistration {
     @Test
     public void givenFirstName_ifProper_thenReturnTrue() {
         UserValidate validator = new UserValidate();
-        boolean result = validator.checkFirstname("Alekhya");
+        boolean result = validator.checkFirstName("Alekhya");
         Assert.assertTrue(result);
     }
 
     @Test
     public void givenLastName_ifProper_thenReturnTrue() {
         UserValidate validator = new UserValidate();
-        boolean result = validator.checkLastname("Bathula");
+        boolean result = validator.checkLastName("Bathula");
         Assert.assertTrue(result);
     }
 
@@ -21,6 +21,13 @@ public class UserRegistration {
     public void givenEmailId_ifProper_thenReturnTrue() {
         UserValidate validator = new UserValidate();
         boolean result = validator.checkEmailId("alekhya0801@gmail.com");
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void givenMobileNumber_ifProper_thenReturnTrue() {
+        UserValidate validator = new UserValidate();
+        boolean result = validator.checkMobileNumber("91 1234567890");
         Assert.assertTrue(result);
     }
 }
