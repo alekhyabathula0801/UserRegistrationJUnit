@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="UserRegistration" tests="2" skipped="0" failures="0" errors="0" timestamp="2020-04-28T14:02:31" hostname="LAPTOP-VMLRSS4V" time="0.005">
+  <properties/>
+  <testcase name="givenFirstName_ifProper_thenReturnTrue" classname="UserRegistration" time="0.004"/>
+  <testcase name="givenLastName_ifProper_thenReturnTrue" classname="UserRegistration" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

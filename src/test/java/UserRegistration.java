@@ -9,4 +9,12 @@ public class UserRegistration {
         boolean result = validator.checkFirstname("Alekhya");
         Assert.assertTrue(result);
     }
+
+    @Test
+    public void givenLastName_ifProper_thenReturnTrue() {
+        UserValidate validator = new UserValidate();
+        boolean result = validator.checkLastname("Bathula");
+        Assert.assertTrue(result);
+    }
+
 }
