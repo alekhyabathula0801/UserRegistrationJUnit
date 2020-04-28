@@ -17,4 +17,10 @@ public class UserRegistration {
         Assert.assertTrue(result);
     }
 
+    @Test
+    public void givenEmailId_ifProper_thenReturnTrue() {
+        UserValidate validator = new UserValidate();
+        boolean result = validator.checkEmailId("alekhya0801@gmail.com");
+        Assert.assertTrue(result);
+    }
 }
