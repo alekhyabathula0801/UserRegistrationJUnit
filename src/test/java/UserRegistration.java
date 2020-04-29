@@ -55,10 +55,38 @@ public class UserRegistration {
     }
 
     @Test
+    public void givenEmailId_ifNotValid_thenReturnFalse() {
+        UserValidate validator = new UserValidate();
+        boolean result = validator.checkEmailId("alekhya@gmail.");
+        Assert.assertFalse(result);
+    }
+
+    @Test
     public void givenMobileNumber_ifProper_thenReturnTrue() {
         UserValidate validator = new UserValidate();
         boolean result = validator.checkMobileNumber("91 1234567890");
         Assert.assertTrue(result);
+    }
+
+    @Test
+    public void givenMobileNumber_ifNoSpace_thenReturnFalse() {
+        UserValidate validator = new UserValidate();
+        boolean result = validator.checkMobileNumber("911234567890");
+        Assert.assertFalse(result);
+    }
+
+    @Test
+    public void givenMobileNumber_ifContainCharacter_thenReturnFalse() {
+        UserValidate validator = new UserValidate();
+        boolean result = validator.checkMobileNumber("91 12a457890");
+        Assert.assertFalse(result);
+    }
+
+    @Test
+    public void givenMobileNumber_ifContainSpecialCharacter_thenReturnFalse() {
+        UserValidate validator = new UserValidate();
+        boolean result = validator.checkMobileNumber("91 1&34567890");
+        Assert.assertFalse(result);
     }
 
     @Test
