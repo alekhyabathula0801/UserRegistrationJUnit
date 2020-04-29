@@ -1,6 +1,8 @@
 import com.User_Registration.UserValidate.UserValidate;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
 
 public class UserRegistration {
     @Test
@@ -8,6 +10,34 @@ public class UserRegistration {
         UserValidate validator = new UserValidate();
         boolean result = validator.checkFirstName("Alekhya");
         Assert.assertTrue(result);
+    }
+
+    @Test
+    public void givenFirstName_ifShort_thenReturnFalse() {
+        UserValidate validator = new UserValidate();
+        boolean result = validator.checkFirstName("Al");
+        Assert.assertFalse(result);
+    }
+
+    @Test
+    public void givenFirstName_ifNoUpperCase_thenReturnFalse() {
+        UserValidate validator = new UserValidate();
+        boolean result = validator.checkFirstName("alekhya");
+        Assert.assertFalse(result);
+    }
+
+    @Test
+    public void givenFirstName_ifContainsNumeric_thenReturnFalse() {
+        UserValidate validator = new UserValidate();
+        boolean result = validator.checkFirstName("Alekhya1");
+        Assert.assertFalse(result);
+    }
+
+    @Test
+    public void givenFirstName_ifContainsSpecialChar_thenReturnFalse() {
+        UserValidate validator = new UserValidate();
+        boolean result = validator.checkFirstName("Alekhya$");
+        Assert.assertFalse(result);
     }
 
     @Test
@@ -34,7 +64,7 @@ public class UserRegistration {
     @Test
     public void givenPassword_ifLong_thenReturnTrue() {
         UserValidate validator = new UserValidate();
-        boolean result = validator.checkPasswordLength("jnJhu$fgik4");
+        boolean result = validator.checkPasswordLength("jnJhufgik4");
         Assert.assertTrue(result);
     }
 
@@ -55,7 +85,7 @@ public class UserRegistration {
     @Test
     public void givenPassword_ifExactlyOneSpecialCharacter_thenReturnTrue() {
         UserValidate validator = new UserValidate();
-        boolean result = validator.checkPasswordWithExactlyOneSpecialCharacter("k1hw@s3sVJG7c");
+        boolean result = validator.checkPasswordWithExactlyOneSpecialCharacter("Lg5@jgc68UG6");
         Assert.assertTrue(result);
     }
 }
