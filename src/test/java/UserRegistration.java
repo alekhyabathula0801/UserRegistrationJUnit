@@ -97,10 +97,24 @@ public class UserRegistration {
     }
 
     @Test
+    public void givenPassword_ifShort_thenReturnFalse() {
+        UserValidate validator = new UserValidate();
+        boolean result = validator.checkPasswordLength("jnJ@4");
+        Assert.assertFalse(result);
+    }
+
+    @Test
     public void givenPassword_ifAtleastOneUppercase_thenReturnTrue() {
         UserValidate validator = new UserValidate();
         boolean result = validator.checkPasswordWithAtleastOneUppercase("saaRjmHn6rf");
         Assert.assertTrue(result);
+    }
+
+    @Test
+    public void givenPassword_ifNoUppercase_thenReturnFalse() {
+        UserValidate validator = new UserValidate();
+        boolean result = validator.checkPasswordLength("jn#hufgik4");
+        Assert.assertFalse(result);
     }
 
     @Test
@@ -111,9 +125,30 @@ public class UserRegistration {
     }
 
     @Test
+    public void givenPassword_ifNoNumericValue_thenReturnFalse() {
+        UserValidate validator = new UserValidate();
+        boolean result = validator.checkPasswordWithAtleastOneNumber("khws%sVUJGFc");
+        Assert.assertFalse(result);
+    }
+
+    @Test
     public void givenPassword_ifExactlyOneSpecialCharacter_thenReturnTrue() {
         UserValidate validator = new UserValidate();
         boolean result = validator.checkPasswordWithExactlyOneSpecialCharacter("Lg5@jgc68UG6");
         Assert.assertTrue(result);
+    }
+
+    @Test
+    public void givenPassword_ifNoSpecialCharacter_thenReturnFalse() {
+        UserValidate validator = new UserValidate();
+        boolean result = validator.checkPasswordWithExactlyOneSpecialCharacter("Lg5jgc68UG6");
+        Assert.assertFalse(result);
+    }
+
+    @Test
+    public void givenPassword_ifMoreThanOneSpecialCharacter_thenReturnFalse() {
+        UserValidate validator = new UserValidate();
+        boolean result = validator.checkPasswordWithExactlyOneSpecialCharacter("Lg5jgc$#68UG6");
+        Assert.assertFalse(result);
     }
 }
