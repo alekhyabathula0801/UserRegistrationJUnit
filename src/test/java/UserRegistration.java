@@ -1,10 +1,23 @@
 import com.User_Registration.UserValidate.UserValidate;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import java.util.Arrays;
+import java.util.Collection;
 
+@RunWith(Parameterized.class)
 public class UserRegistration {
+    private final String email;
+    private final Boolean expectedResult;
+    private UserValidate validator;
+
+    @Before
+    public void initialize() {
+        validator = new UserValidate();
+    }
+
     @Test
     public void givenFirstName_ifProper_thenReturnTrue() {
         UserValidate validator = new UserValidate();
@@ -47,18 +60,43 @@ public class UserRegistration {
         Assert.assertTrue(result);
     }
 
-    @Test
-    public void givenEmailId_ifProper_thenReturnTrue() {
-        UserValidate validator = new UserValidate();
-        boolean result = validator.checkEmailId("alekhya0801@gmail.com");
-        Assert.assertTrue(result);
+    public UserRegistration(String email,Boolean expectedResult) {
+        this.email = email;
+        this.expectedResult =expectedResult;
+    }
+
+    @Parameterized.Parameters
+    public static Collection email_with_expectedResult() {
+        return Arrays.asList(new Object[][]{
+                {"abc@yahoo.com", true},
+                {"abc-100@yahoo.com", true},
+                {"abc.100@yahoo.com", true},
+                {"abc111@abc.com", true},
+                {"abc-100@abc.net", true},
+                {"abc.100@abc.com.au", true},
+                {"abc@1.com", true},
+                {"abc+100@gmail.com", true},
+                {"abc@gmail.com.com", false},
+                {"abc", false},
+                {"abc@.com.my", false},
+                {"abc123@gmail.a", false},
+                {"abc123@.com", false},
+                {"abc123@.com.com", false},
+                {".abc123@abc.com", false},
+                {"abc()*@gmail.com", false},
+                {"abc@%*.com", false},
+                {"abc..2002@gmail.com", false},
+                {"abc.@gmail.com", false},
+                {"abc@abc@gmail.com", false},
+                {"abc@@gmail.com.1a", false},
+                {"abc@gmail.com.aa.au", false},
+        });
     }
 
     @Test
-    public void givenEmailId_ifNotValid_thenReturnFalse() {
-        UserValidate validator = new UserValidate();
-        boolean result = validator.checkEmailId("alekhya@gmail.");
-        Assert.assertFalse(result);
+    public void givenEmailId_shouldReturnExpectedResult() {
+        System.out.println("email id is : " + email);
+        Assert.assertEquals(expectedResult, validator.checkEmailId(email));
     }
 
     @Test
@@ -148,7 +186,7 @@ public class UserRegistration {
     @Test
     public void givenPassword_ifMoreThanOneSpecialCharacter_thenReturnFalse() {
         UserValidate validator = new UserValidate();
-        boolean result = validator.checkPasswordWithExactlyOneSpecialCharacter("Lg5jgc$#68UG6");
+        boolean result = validator.checkPasswordWithExactlyOneSpecialCharacter("Lg5jg#c6^8UG6");
         Assert.assertFalse(result);
     }
 }
