@@ -172,7 +172,7 @@ public class UserRegistration {
     }
 
     @Test
-    public void givenPassword_whenExactlyOneSpecialCharacter_shouldReturnTrue() {
+    public void givenPassword_whenAtleastOneSpecialCharacter_shouldReturnTrue() {
         UserValidate validator = new UserValidate();
         boolean result = validator.checkPassword("Lg5@jgc68UG6");
         Assert.assertTrue(result);
@@ -182,13 +182,6 @@ public class UserRegistration {
     public void givenPassword_whenNoSpecialCharacter_shouldReturnFalse() {
         UserValidate validator = new UserValidate();
         boolean result = validator.checkPassword("Lg5jgc68UG6");
-        Assert.assertFalse(result);
-    }
-
-    @Test
-    public void givenPassword_whenMoreThanOneSpecialCharacter_shouldReturnFalse() {
-        UserValidate validator = new UserValidate();
-        boolean result = validator.checkPassword("Lg5jg#c6^8UG6");
         Assert.assertFalse(result);
     }
 }
